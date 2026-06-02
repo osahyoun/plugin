@@ -28,11 +28,7 @@ EKO_SUPER_SEARCH_MCP_TOKEN
 
 The plugin sends that token through the `super-search-mailing-memory` MCP server config.
 
-For local development, you can still run the same service from the `super-search` repo and temporarily point `.mcp.json` back to `http://127.0.0.1:8080/mcp`:
-
-```bash
-MCP_AUTH_MODE=none go run ./cmd/server
-```
+Recipients do not need to run `super-search` locally. The installed plugin calls the remote MCP server above and sends the bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN`.
 
 When strategizing, the skill calls `campaign_strategy_memory` to fetch strong historical analogues, optional lower-performing analogues, benchmarks, and strategy prompts. When drafting, it calls `high_performing_examples` to fetch a few similar, high-performing historical mailings as voice and format references.
 

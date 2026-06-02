@@ -38,7 +38,7 @@ Use only the relevant sections if the request is narrow.
 
 ## Operating Model
 
-Mirror the drafter service pipeline from `/Users/omarsahyoun/eko/drafter`:
+Mirror the drafter service pipeline:
 
 1. Intake: normalize the raw brief without inventing facts.
 2. Source posture: use supplied URLs or notes; if source discovery is needed and allowed, search for reliable primary or reputable sources. If evidence is missing, draft cautiously and mark the gap.
@@ -54,7 +54,7 @@ Mirror the drafter service pipeline from `/Users/omarsahyoun/eko/drafter`:
 
 ## Mailing Memory MCP
 
-The plugin declares the HTTP MCP server `super-search-mailing-memory` at `https://labs.eko.org/mcp`. It is backed by `/Users/omarsahyoun/eko/super-search` and requires OAuth in production.
+The plugin declares the HTTP MCP server `super-search-mailing-memory` at `https://labs.eko.org/mcp`. It calls that remote server directly and requires a bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN` in production.
 
 For campaign strategy, planning, "what have we tried before", CTA strategy, target strategy, sequencing, or campaign angle requests:
 
@@ -228,4 +228,4 @@ If the user provides no evidence for factual claims, produce either:
 - a cautious draft that avoids unsupported specifics, plus warnings, or
 - a short request for the minimum source material needed, if drafting would otherwise mislead.
 
-Do not claim the plugin has run the `/Users/omarsahyoun/eko/drafter` service unless you actually run it. This plugin replicates the drafter workflow and prompt logic inside Codex; it does not call the drafter backend by default.
+Do not claim the plugin has run the drafter service. This plugin replicates the drafter workflow and prompt logic inside Codex; it does not call the drafter backend by default.

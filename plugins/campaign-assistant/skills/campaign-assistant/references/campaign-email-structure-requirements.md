@@ -1,6 +1,6 @@
 # Campaign Email Structure Requirements
 
-Source reviewed: `/Users/omarsahyoun/Downloads/Copy of 3.Writing Campaign Emails.pdf`
+Source reviewed: campaign email writing guide PDF
 
 This reference summarizes the petition-email structure taught in the campaigner training deck. Treat it as a mandatory drafting structure for petition mailings, especially when deciding what belongs above the first petition link, below it, in the box text, and in the source section.
 

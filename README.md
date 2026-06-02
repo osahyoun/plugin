@@ -82,11 +82,7 @@ Production mailing memory requires bearer-token auth. The plugin reads the token
 EKO_SUPER_SEARCH_MCP_TOKEN
 ```
 
-For local development, run the server from the `super-search` repo and temporarily point the plugin's `.mcp.json` back to `http://127.0.0.1:8080/mcp`:
-
-```bash
-MCP_AUTH_MODE=none go run ./cmd/server
-```
+Recipients do not need to run `super-search` locally. The installed plugin calls the remote MCP server above and sends the bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN`.
 
 The plugin uses:
 

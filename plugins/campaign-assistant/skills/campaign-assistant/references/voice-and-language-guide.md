@@ -1,9 +1,9 @@
 # Voice And Language Guide
 
-This is the campaign email voice and progressive language reference for the Campaign Assistant plugin. It condenses the drafter memory files:
+This is the campaign email voice and progressive language reference for the Campaign Assistant plugin. It condenses the drafter voice and language guidance:
 
-- `/Users/omarsahyoun/eko/drafter/memory/mailing_voice/golden_style_guide.md`
-- `/Users/omarsahyoun/eko/drafter/memory/mailing_voice/progressive_language_guidelines.md`
+- internal golden style guide
+- progressive language guidelines
 
 ## Golden Style Guide
 

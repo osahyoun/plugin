@@ -1,6 +1,6 @@
 # Drafter Workflow Reference
 
-This reference mirrors the mailing draft workflow in `/Users/omarsahyoun/eko/drafter`.
+This reference mirrors the mailing draft workflow used by the drafter service.
 
 ## Service Shape
 
