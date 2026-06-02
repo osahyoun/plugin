@@ -1,0 +1,158 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TOKEN_ENV_VAR="EKO_SUPER_SEARCH_MCP_TOKEN"
+PLUGIN_NAME="campaign-assistant"
+MCP_NAME="super-search-mailing-memory"
+ENV_FILE="${HOME}/.codex/campaign-assistant.env"
+LAUNCHER="${HOME}/.local/bin/codex-campaign-assistant"
+
+LAUNCH=1
+OPEN_PLUGIN=1
+SAVE_TOKEN=0
+TOKEN_FILE=""
+
+usage() {
+  cat <<'USAGE'
+Install and run the Campaign Assistant Codex plugin with MCP bearer-token auth.
+
+Usage:
+  ./scripts/codex-campaign-assistant [options]
+
+Options:
+  --token-file PATH  Read the MCP token from the first line of PATH.
+  --save-token      Save the token to ~/.codex/campaign-assistant.env and create
+                    ~/.local/bin/codex-campaign-assistant as a reusable launcher.
+  --no-launch       Install/open the plugin, but do not launch the Codex CLI.
+  --no-open         Do not open the Codex plugin page.
+  -h, --help        Show this help.
+
+Token sources, in order:
+  1. EKO_SUPER_SEARCH_MCP_TOKEN environment variable
+  2. --token-file PATH
+  3. Hidden prompt
+
+The token is exported only for the Codex process launched by this script unless
+you pass --save-token.
+USAGE
+}
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+find_codex() {
+  if command -v codex >/dev/null 2>&1; then
+    command -v codex
+    return
+  fi
+
+  local macos_app_cli="/Applications/Codex.app/Contents/Resources/codex"
+  if [[ "$(uname -s)" == "Darwin" && -x "${macos_app_cli}" ]]; then
+    echo "${macos_app_cli}"
+    return
+  fi
+
+  die "Codex CLI not found. Install Codex CLI or the Codex app, then rerun this script."
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --token-file)
+      [[ $# -ge 2 ]] || die "--token-file requires a path"
+      TOKEN_FILE="$2"
+      shift 2
+      ;;
+    --save-token)
+      SAVE_TOKEN=1
+      shift
+      ;;
+    --no-launch)
+      LAUNCH=0
+      shift
+      ;;
+    --no-open)
+      OPEN_PLUGIN=0
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage >&2
+      die "unknown option: $1"
+      ;;
+  esac
+done
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+MARKETPLACE_JSON="${REPO_ROOT}/.agents/plugins/marketplace.json"
+
+[[ -f "${MARKETPLACE_JSON}" ]] || die "missing marketplace file: ${MARKETPLACE_JSON}"
+[[ -d "${REPO_ROOT}/plugins/${PLUGIN_NAME}" ]] || die "missing plugin directory: ${REPO_ROOT}/plugins/${PLUGIN_NAME}"
+
+CODEX_BIN="$(find_codex)"
+TOKEN="${!TOKEN_ENV_VAR:-}"
+
+if [[ -z "${TOKEN}" && -n "${TOKEN_FILE}" ]]; then
+  [[ -f "${TOKEN_FILE}" ]] || die "token file not found: ${TOKEN_FILE}"
+  TOKEN="$(sed -n '1p' "${TOKEN_FILE}" | tr -d '\r\n')"
+fi
+
+if [[ -z "${TOKEN}" ]]; then
+  if [[ -t 0 ]]; then
+    read -r -s -p "Paste Eko super-search MCP token: " TOKEN
+    echo
+  else
+    die "set ${TOKEN_ENV_VAR} or pass --token-file PATH"
+  fi
+fi
+
+[[ -n "${TOKEN}" ]] || die "empty MCP token"
+export EKO_SUPER_SEARCH_MCP_TOKEN="${TOKEN}"
+
+echo "Using Codex: ${CODEX_BIN}"
+echo "Adding plugin marketplace from: ${REPO_ROOT}"
+"${CODEX_BIN}" plugin marketplace add "${REPO_ROOT}"
+
+if [[ "${SAVE_TOKEN}" -eq 1 ]]; then
+  mkdir -p "${HOME}/.codex" "${HOME}/.local/bin"
+  umask 077
+  printf 'export %s=%q\n' "${TOKEN_ENV_VAR}" "${TOKEN}" > "${ENV_FILE}"
+  {
+    echo '#!/usr/bin/env bash'
+    echo 'set -euo pipefail'
+    printf 'source %q\n' "${ENV_FILE}"
+    printf 'exec %q "$@"\n' "${CODEX_BIN}"
+  } > "${LAUNCHER}"
+  chmod 700 "${ENV_FILE}" "${LAUNCHER}"
+  echo "Saved token env file: ${ENV_FILE}"
+  echo "Created launcher: ${LAUNCHER}"
+fi
+
+if [[ "${OPEN_PLUGIN}" -eq 1 && "$(uname -s)" == "Darwin" ]] && command -v open >/dev/null 2>&1 && command -v python3 >/dev/null 2>&1; then
+  ENCODED_MARKETPLACE="$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "${MARKETPLACE_JSON}")"
+  open "codex://plugins/${PLUGIN_NAME}?marketplacePath=${ENCODED_MARKETPLACE}" >/dev/null 2>&1 || true
+fi
+
+cat <<EOF
+
+Next:
+  1. In Codex, install or enable '${PLUGIN_NAME}' from the Campaign Assistant marketplace.
+     If it was installed before this auth update, uninstall and reinstall it from the opened plugin page.
+  2. Start a new thread.
+  3. Try:
+     @campaign-assistant Strategize this campaign using similar past mailings: pressure a supermarket chain to reduce single-use plastic packaging.
+
+MCP auth:
+  ${MCP_NAME} will receive Authorization: Bearer from ${TOKEN_ENV_VAR}.
+EOF
+
+if [[ "${LAUNCH}" -eq 1 ]]; then
+  echo
+  echo "Launching Codex CLI with ${TOKEN_ENV_VAR} set for this process..."
+  exec "${CODEX_BIN}"
+fi

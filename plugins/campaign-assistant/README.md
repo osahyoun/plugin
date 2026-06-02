@@ -20,6 +20,14 @@ The plugin expects `super-search` to expose production MCP at:
 https://labs.eko.org/mcp
 ```
 
+Production access requires a bearer token in:
+
+```bash
+EKO_SUPER_SEARCH_MCP_TOKEN
+```
+
+The plugin sends that token through the `super-search-mailing-memory` MCP server config.
+
 For local development, you can still run the same service from the `super-search` repo and temporarily point `.mcp.json` back to `http://127.0.0.1:8080/mcp`:
 
 ```bash

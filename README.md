@@ -4,7 +4,35 @@ Campaign Assistant is a Codex-native plugin for campaign email drafting and revi
 
 There is no companion web app. The plugin works through the Codex skill at `plugins/campaign-assistant/skills/campaign-assistant/SKILL.md` and can use the production `super-search` HTTP MCP server for historical mailing memory.
 
-## Install
+## Quick Local Setup
+
+After unzipping this repo, run:
+
+```bash
+cd campaign-assistant-codex-plugin
+./scripts/codex-campaign-assistant
+```
+
+The script will:
+
+- ask for the Eko `super-search` MCP token without echoing it
+- add this folder as a Codex plugin marketplace
+- open the plugin page in the Codex app on macOS, when possible
+- launch the Codex CLI with `EKO_SUPER_SEARCH_MCP_TOKEN` set for that run
+
+To avoid pasting the token every time:
+
+```bash
+./scripts/codex-campaign-assistant --save-token
+```
+
+That stores the token in `~/.codex/campaign-assistant.env` with restricted file permissions and creates a reusable launcher at `~/.local/bin/codex-campaign-assistant`.
+
+The desktop app launched from Finder or Dock may not inherit shell environment variables. For the first authenticated test, use the Codex CLI launched by this script.
+
+If the plugin was installed before token auth was added, uninstall and reinstall it from the plugin page so Codex picks up the latest MCP config.
+
+## Manual Install
 
 Add this repository as a Codex plugin marketplace:
 
@@ -19,6 +47,13 @@ If the Codex app is installed but `codex` is not on your shell path, use the bun
 ```
 
 After installing the marketplace, restart Codex, open Plugins, select the marketplace, and install `campaign-assistant`. Start a new Codex thread so the skill instructions are loaded.
+
+Set the MCP token before launching Codex:
+
+```bash
+export EKO_SUPER_SEARCH_MCP_TOKEN="your-token-here"
+codex
+```
 
 ## What The Plugin Does
 
@@ -39,6 +74,12 @@ The plugin points at:
 
 ```bash
 https://labs.eko.org/mcp
+```
+
+Production mailing memory requires bearer-token auth. The plugin reads the token from:
+
+```bash
+EKO_SUPER_SEARCH_MCP_TOKEN
 ```
 
 For local development, run the server from the `super-search` repo and temporarily point the plugin's `.mcp.json` back to `http://127.0.0.1:8080/mcp`:
