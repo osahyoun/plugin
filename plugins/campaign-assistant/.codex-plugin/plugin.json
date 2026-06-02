@@ -1,0 +1,33 @@
+{
+  "name": "campaign-assistant",
+  "version": "0.1.0+codex.20260602130621",
+  "description": "Codex-native campaign email drafting and review plugin.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Campaign Assistant",
+    "shortDescription": "Strategize, draft, and review campaign emails with mailing memory.",
+    "longDescription": "Campaign Assistant is a Codex plugin that mirrors the Eko drafter pipeline for campaign strategy, campaign email drafting, source-aware claims, target-of-change readiness, house voice, progressive language review, and retrieval of high-performing or cautionary historical mailings through the production super-search MCP server.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Campaign email drafting",
+      "Campaign strategy memory",
+      "Historical mailing memory",
+      "Curated mailing examples",
+      "Evidence review",
+      "CTA strategy",
+      "Progressive language review",
+      "Structured text outputs"
+    ],
+    "defaultPrompt": [
+      "Draft a campaign email from this brief.",
+      "Strategize this campaign using past mailing memory.",
+      "Review this mailing draft before launch."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

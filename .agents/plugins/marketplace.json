@@ -1,0 +1,20 @@
+{
+  "name": "campaign-assistant",
+  "interface": {
+    "displayName": "Campaign Assistant"
+  },
+  "plugins": [
+    {
+      "name": "campaign-assistant",
+      "source": {
+        "source": "local",
+        "path": "./plugins/campaign-assistant"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

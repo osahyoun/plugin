@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "super-search-mailing-memory": {
+      "type": "http",
+      "url": "https://labs.eko.org/mcp",
+      "note": "Production super-search HTTP MCP endpoint for searching and fetching high-performing historical mailings as drafting memory."
+    }
+  }
+}
