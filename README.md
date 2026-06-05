@@ -8,6 +8,30 @@ There is no companion web app. The plugin works through the Codex skill at `plug
 
 After unzipping this repo:
 
+1. Double-click:
+
+```text
+scripts/install-campaign-assistant.command
+```
+
+2. Paste the Eko `super-search` MCP token when prompted.
+3. Fully quit and reopen Codex.
+4. Start a new thread and use Campaign Assistant.
+
+The installer does not require the Codex CLI. It registers this folder as a
+local Codex marketplace, enables `campaign-assistant`, seeds the local Codex
+plugin cache, opens the plugin page when possible, and runs the token setup
+helper.
+
+The token is not included in this plugin zip and is not entered in the Add
+marketplace dialog.
+
+If macOS blocks the script, right-click it, choose Open, and approve the prompt.
+
+### Manual Codex App Setup
+
+If the installer cannot run, install through the Codex UI:
+
 1. Open Codex app.
 2. Open Plugins.
 3. Click Add marketplace.
@@ -29,9 +53,6 @@ scripts/setup-campaign-assistant-token.command
 That helper asks for the Eko `super-search` MCP token, stores it locally in
 `~/.codex/campaign-assistant.env`, installs a macOS login loader so Codex can
 see the token after future logins, and tells the user to restart Codex.
-
-The token is not included in this plugin zip and is not entered in the Add
-marketplace dialog.
 
 ## CLI Setup
 
