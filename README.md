@@ -11,7 +11,7 @@ After unzipping this repo:
 1. Double-click:
 
 ```text
-scripts/install-campaign-assistant.command
+Install Campaign Assistant.command
 ```
 
 2. Paste the Eko `super-search` MCP token when prompted.
@@ -26,7 +26,8 @@ helper.
 The token is not included in this plugin zip and is not entered in the Add
 marketplace dialog.
 
-If macOS blocks the script, right-click it, choose Open, and approve the prompt.
+If macOS blocks the installer, right-click `Install Campaign Assistant.command`,
+choose Open, and approve the prompt.
 
 ### Manual Codex App Setup
 

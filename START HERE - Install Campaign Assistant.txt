@@ -1,0 +1,16 @@
+Install Campaign Assistant for Codex
+
+1. Double-click:
+
+   Install Campaign Assistant.command
+
+2. Paste the Eko super-search MCP token when prompted.
+
+3. Fully quit and reopen Codex.
+
+4. Start a new Codex thread and use Campaign Assistant.
+
+If macOS blocks the installer, right-click "Install Campaign Assistant.command",
+choose Open, then approve the prompt.
+
+The installer does not require the Codex CLI.
