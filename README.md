@@ -4,7 +4,36 @@ Campaign Assistant is a Codex-native plugin for campaign email drafting and revi
 
 There is no companion web app. The plugin works through the Codex skill at `plugins/campaign-assistant/skills/campaign-assistant/SKILL.md` and can use the production `super-search` HTTP MCP server for historical mailing memory.
 
-## Quick Local Setup
+## Codex App Setup
+
+After unzipping this repo:
+
+1. Open Codex app.
+2. Open Plugins.
+3. Click Add marketplace.
+4. Set Source to the unzipped folder, for example:
+
+```text
+/Users/you/Downloads/campaign-assistant-codex-plugin
+```
+
+5. Leave Git ref as `main` and Sparse paths blank.
+6. Click Add marketplace.
+7. Install or enable `campaign-assistant`.
+8. Double-click:
+
+```text
+scripts/setup-campaign-assistant-token.command
+```
+
+That helper asks for the Eko `super-search` MCP token, stores it locally in
+`~/.codex/campaign-assistant.env`, installs a macOS login loader so Codex can
+see the token after future logins, and tells the user to restart Codex.
+
+The token is not included in this plugin zip and is not entered in the Add
+marketplace dialog.
+
+## CLI Setup
 
 After unzipping this repo, run:
 

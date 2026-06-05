@@ -30,6 +30,16 @@ The plugin sends that token through the `super-search-mailing-memory` MCP server
 
 Recipients do not need to run `super-search` locally. The installed plugin calls the remote MCP server above and sends the bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN`.
 
+For Codex app users who do not use the Codex CLI, run the zip-level helper:
+
+```text
+scripts/setup-campaign-assistant-token.command
+```
+
+It prompts for the token, stores it locally with restricted permissions, and
+sets up a macOS login loader so Codex.app can read `EKO_SUPER_SEARCH_MCP_TOKEN`
+after restart.
+
 When strategizing, the skill calls `campaign_strategy_memory` to fetch strong historical analogues, optional lower-performing analogues, benchmarks, and strategy prompts. When drafting, it calls `high_performing_examples` to fetch a few similar, high-performing historical mailings as voice and format references.
 
 The plugin also includes three static DB-sourced examples so drafts still have concrete house-format anchors:
