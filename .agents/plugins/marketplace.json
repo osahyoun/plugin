@@ -1,14 +1,14 @@
 {
-  "name": "campaign-assistant",
+  "name": "eko",
   "interface": {
-    "displayName": "Campaign Assistant"
+    "displayName": "Eko"
   },
   "plugins": [
     {
-      "name": "campaign-assistant",
+      "name": "eko",
       "source": {
         "source": "local",
-        "path": "./plugins/campaign-assistant"
+        "path": "./plugins/eko"
       },
       "policy": {
         "installation": "AVAILABLE",

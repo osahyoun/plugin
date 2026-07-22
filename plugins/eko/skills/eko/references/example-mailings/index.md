@@ -4,6 +4,18 @@ These examples are local voice and format anchors pulled from the historical mai
 
 Do not treat these examples as factual sources for a new campaign. Do not copy distinctive phrases, claims, numbers, quotes, targets, or campaign-specific details. Extract reusable structure, pacing, CTA placement, urgency level, subject/preheader shape, and paragraph rhythm.
 
+## Emotional Calibration
+
+Use these examples to avoid drafts that are technically correct but too dry. The baseline is not neutral institutional prose. The reusable emotional pattern is:
+
+- a fast opening with a vivid harm, risk, hypocrisy, live decision, or supporter-facing consequence
+- a clear target contrast that shows who can change the outcome
+- one grounded human, worker, community, insider, or member-solidarity detail when the source material supports it
+- a practical CTA that sounds confident and urgent, not tentative
+- a movement or collective-action close that makes the supporter feel part of something real
+
+Keep the feeling source-grounded. Historical examples sometimes use sharp moral language, but a new draft should only use that intensity when the brief and evidence support it. When evidence is thin, keep warmth, urgency, and collective agency, but soften claims rather than inventing outrage.
+
 ## Examples
 
 ### 1. `killer-ai-petition-2026.md`
@@ -54,4 +66,5 @@ When building a draft:
 1. Pick the closest example by action type and campaign shape.
 2. Borrow only reusable patterns, not wording.
 3. Prefer the current live MCP examples when they are more relevant than these static examples.
-4. Mention these under `Mailing Memory` as curated examples when they materially shaped the draft.
+4. Calibrate emotional register from the closest example: opening intensity, amount of human detail, CTA conviction, and signoff warmth.
+5. Mention these under `Mailing Memory` as curated examples when they materially shaped the draft.

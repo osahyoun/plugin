@@ -1,11 +1,11 @@
 ---
-name: campaign-assistant
+name: eko
 description: Use when campaigners need Codex-native help drafting or reviewing campaign emails, CTAs, evidence-grounded mailing copy, source-aware reviewer notes, and progressive-language-safe campaign outputs.
 ---
 
-# Campaign Assistant
+# Eko
 
-Campaign Assistant is a Codex-native plugin. Do not open or run a web app for this skill. Work in Codex text, using the mailing-memory MCP tools when available.
+Eko is a Codex-native plugin. Do not open or run a web app for this skill. Work in Codex text, using the mailing-memory MCP tools when available.
 
 Use this skill when the user asks to:
 
@@ -43,18 +43,18 @@ Mirror the drafter service pipeline:
 1. Intake: normalize the raw brief without inventing facts.
 2. Source posture: use supplied URLs or notes; if source discovery is needed and allowed, search for reliable primary or reputable sources. If evidence is missing, draft cautiously and mark the gap.
 3. Mailing memory retrieval: use historical mailing memory when the `super-search-mailing-memory` MCP server is available. For strategy and planning, call `campaign_strategy_memory`. For drafting, call `high_performing_examples`.
-4. Voice retrieval: apply the golden style guide and approved voice principles. Use patterns, not copied wording.
-5. Structure: build subject lines, preview text, hook, body flow, CTA, signoff, and optional PS before drafting. For petition drafts, the outline must follow `references/campaign-email-structure-requirements.md`.
+4. Voice retrieval: apply the golden style guide and approved voice principles. Use patterns, not copied wording. Calibrate the emotional register from relevant historical examples.
+5. Structure: build subject lines, preview text, hook, body flow, CTA, signoff, and optional PS before drafting. The hook should include a grounded emotional stake, not just background. For petition drafts, the outline must follow `references/campaign-email-structure-requirements.md`.
 6. Member action evaluation: identify the Target of Change, target specificity, member action, action type, pressure channel, and readiness.
-7. Drafting: write source-grounded campaign copy with one clear ask, one main verb, and one decision-maker whenever possible. For petition drafts, include the first petition landing-page CTA after ATL and repeat the same petition CTA in BTL or near the close.
+7. Drafting: write source-grounded campaign copy with one clear ask, one main verb, and one decision-maker whenever possible. Use medium-high emotion by default: vivid, human, morally clear, and urgent where the evidence supports it. For petition drafts, include the first petition landing-page CTA after ATL and repeat the same petition CTA in BTL or near the close.
 8. Fact check: extract major factual claims and map each to supplied or discovered evidence.
-9. Review: flag unsupported claims, generic filler, CTA weakness, tone drift, target vagueness, and house style misses.
+9. Review: flag unsupported claims, generic filler, emotional dryness, CTA weakness, tone drift, target vagueness, and house style misses.
 10. Progressive language review: check people-first framing, self-identification, precise terms, active voice, and stigmatizing language.
 11. Revision: produce the final campaigner-visible output with safer wording and reviewer notes.
 
 ## Mailing Memory MCP
 
-The plugin declares the HTTP MCP server `super-search-mailing-memory` at `https://labs.eko.org/mcp`. It calls that remote server directly and requires a bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN` in production.
+The plugin declares the HTTP MCP server `super-search-mailing-memory` at `https://labs.eko.org/mcp`. It calls that remote server directly and uses OAuth in production.
 
 For campaign strategy, planning, "what have we tried before", CTA strategy, target strategy, sequencing, or campaign angle requests:
 
@@ -78,7 +78,7 @@ For substantive drafting requests:
    - `donation_amount` or `orders` for fundraising mailings.
    - `relevance` when close topical similarity matters more than performance.
 5. Include `language_code` or `tags` when the user provides them or they are clear from the brief.
-6. Use returned examples as a voice and format guide only: paragraph shape, opener style, argument order, CTA placement, subject-line pattern, preview-text pattern, urgency level, and signoff rhythm.
+6. Use returned examples as a voice and format guide only: paragraph shape, opener style, argument order, CTA placement, subject-line pattern, preview-text pattern, emotional register, urgency level, and signoff rhythm.
 7. Never copy distinctive wording, facts, numbers, quotes, campaign claims, or example-specific framing into a new draft.
 8. Use the curated static examples in `references/example-mailings/` as fallback and baseline house-format anchors. Prefer live MCP examples when they are more relevant, but always compare the draft structure against at least one curated example.
 
@@ -141,11 +141,13 @@ Make clear when a recommendation is inferred from patterns in historical mailing
 - Treat strategy memory as performance signals and strategic hypotheses, not as deterministic proof that one tactic caused results.
 - Treat curated example mailings as format and voice references only. Do not reuse their facts, claims, numbers, targets, worker stories, or distinctive phrases.
 - Prefer concrete language over generic activist cliches.
+- Avoid dry institutional prose. Make the supported human stakes, target accountability, moral tension, and collective agency visible.
 - When evidence is insufficient, soften or remove claims instead of smoothing over the gap.
 - Surface uncertainty explicitly when it affects launch risk.
 - Keep the ask singular and practical. For non-petition emails, keep the main CTA near the end. For petition emails, follow the required ATL -> first petition link -> BTL -> second petition link structure.
 - Use direct second-person language without sounding theatrical or self-congratulatory.
 - Make urgency earned by evidence, not inflated rhetoric.
+- Keep emotion source-grounded: preserve warmth and urgency without inventing stories, motives, deadlines, or momentum.
 
 ## Default Output
 

@@ -1,6 +1,6 @@
 # Voice And Language Guide
 
-This is the campaign email voice and progressive language reference for the Campaign Assistant plugin. It condenses the drafter voice and language guidance:
+This is the campaign email voice and progressive language reference for the Eko plugin. It condenses the drafter voice and language guidance:
 
 - internal golden style guide
 - progressive language guidelines
@@ -14,6 +14,7 @@ Use this as the primary style authority when it conflicts with any single histor
 - Lead with one concrete development, stake, or supporter-facing consequence.
 - Keep paragraphs short enough to scan on mobile.
 - Use direct second-person language, but do not sound theatrical or self-congratulatory.
+- Use a human emotional register: warm, morally clear, and urgent where the evidence supports it.
 - Keep one clear ask, one main verb, and one decision-maker whenever possible.
 - Make urgency feel earned by the evidence, not inflated by rhetoric.
 
@@ -23,7 +24,34 @@ Use this as the primary style authority when it conflicts with any single histor
 - Move from stake to action without long scene-setting.
 - Name what the supporter can do today.
 - Keep the CTA practical and singular.
+- Include one felt stake early: what people could lose, what communities are facing, who is taking a risk, or what concrete win is within reach.
 - End with a warm collective signoff and use PS only when it adds pressure or clarity.
+
+### Emotional Register
+
+Drafts should not read like neutral policy briefs. The house register is medium-high emotion: vivid, human, morally clear, and action-oriented. Historical high-performing mailings usually put the feeling in a concrete opening stake, a sharp target contrast, one human or community detail, and a collective-action close.
+
+Use more emotional weight when:
+
+- The sources show immediate harm, exploitation, danger, scandal, hypocrisy, a deadline, or a live decision point.
+- Affected people, workers, communities, insiders, partners, or supporters are taking a visible risk.
+- Public pressure can plausibly stop harm, protect a win, expose a target, or back people already resisting.
+
+Practical calibration:
+
+- Put one vivid stake in the first 1-2 paragraphs instead of spreading extra adjectives everywhere.
+- Pair feeling with mechanism: why this is harmful, who can change it, and why action now matters.
+- Use plain emotional words where earned, such as "awful", "dangerous", "dirty", "shameful", "heartbreaking", "brave", "toxic", "powerful", or "urgent". Do not stack more than one or two emotionally loaded words in a paragraph.
+- Let the CTA carry conviction: "Tell [target]: [demand] now", not "Consider asking [target] to review [issue]".
+- Include one grounded human detail in ATL or early BTL when the source material supports it. If no affected-person detail is available, use a concrete supporter-facing stake or decision-point tension instead.
+- Close with collective agency and gratitude. The reader should feel that their action joins something real, not that they are completing an administrative task.
+
+Guardrails:
+
+- Do not invent a personal story, deadline, target motive, public outrage, or movement momentum.
+- Do not intensify beyond the evidence. If the facts only support concern, write concern; if they support anger, write anger plainly.
+- Do not make affected people sound helpless, saintly, or symbolic. Preserve dignity and agency.
+- Do not use apocalyptic or authoritarian language unless the brief and sources clearly support that frame.
 
 ### Prefer
 
@@ -32,6 +60,11 @@ Use this as the primary style authority when it conflicts with any single histor
 - can you
 - take two minutes
 - here is what we know
+- this matters because
+- we can help stop this
+- stand with
+- add your name
+- the people affected
 
 ### Avoid
 
@@ -40,23 +73,30 @@ Use this as the primary style authority when it conflicts with any single histor
 - there is no choice
 - shocking beyond belief
 - we can no longer stay silent
+- a concerning development has emerged
+- stakeholders should consider
+- it is important to note
+- help us raise awareness
 
 ### Sentence And Paragraph Style
 
 - Mostly short-to-medium sentences.
 - Use one sharper sentence before the CTA if it helps focus attention.
 - Avoid dense blocks of exposition.
+- Vary practical explanation with one or two warmer lines that name why the issue matters to real people.
 
 ### Rhetorical Patterns
 
 - Open on a concrete trigger, then explain the stake for ordinary people.
 - Use practical framing before abstract moral flourish.
+- Move from felt consequence to target accountability to supporter action.
 - Repeat the ask once with slightly different wording if it helps clarity.
 
 ### Structure And Flow
 
 - Hook with a real development or tightly grounded supporter stake.
 - Explain why this matters now in one compact turn.
+- Put emotional urgency above the first link for petition drafts, then use BTL to deepen evidence and human context.
 - For non-petition emails, ask for one action near the end, not scattered throughout.
 - For petition emails, follow the required petition structure: ATL first, one petition CTA immediately after ATL, BTL evidence/context, then repeat the same petition CTA in BTL or near the close. This is one ask in two placements, not two separate asks.
 - Use PS as a final pressure line, not as a second essay.
@@ -72,6 +112,8 @@ Use this as the primary style authority when it conflicts with any single histor
 - Copying distinctive wording from historical emails.
 - Turning frustration into unsupported claims of refusal or bad faith.
 - Generic activist filler that could fit any campaign.
+- Drafts that sound technically correct but emotionally flat, with no human stake or moral tension.
+- Emotional language that floats free of evidence, target accountability, or a practical action.
 - Over-claiming facts the evidence does not support.
 
 ## Progressive Language Guidelines

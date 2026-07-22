@@ -1,23 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PLUGIN_NAME="campaign-assistant"
-MARKETPLACE_NAME="campaign-assistant"
-TOKEN_SCRIPT_NAME="setup-campaign-assistant-token.command"
+PLUGIN_NAME="eko"
+MARKETPLACE_NAME="eko"
 
 OPEN_PLUGIN=1
-RUN_TOKEN_SETUP=1
 PAUSE_AT_END=1
 
 usage() {
   cat <<'USAGE'
-Install Campaign Assistant for the Codex desktop app without requiring the Codex CLI.
+Install Eko for the Codex desktop app without requiring the Codex CLI.
 
 Usage:
-  ./scripts/install-campaign-assistant.command [options]
+  ./scripts/install-eko.command [options]
 
 Options:
-  --skip-token   Register and install the plugin, but do not prompt for the MCP token.
   --no-open      Do not open the Codex plugin page after installation.
   --no-pause     Do not wait for Return before exiting.
   -h, --help     Show this help.
@@ -44,10 +41,6 @@ urlencode() {
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --skip-token)
-      RUN_TOKEN_SETUP=0
-      shift
-      ;;
     --no-open)
       OPEN_PLUGIN=0
       shift
@@ -80,7 +73,6 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 MARKETPLACE_JSON="${REPO_ROOT}/.agents/plugins/marketplace.json"
 PLUGIN_DIR="${REPO_ROOT}/plugins/${PLUGIN_NAME}"
 PLUGIN_JSON="${PLUGIN_DIR}/.codex-plugin/plugin.json"
-TOKEN_SCRIPT="${SCRIPT_DIR}/${TOKEN_SCRIPT_NAME}"
 
 CODEX_HOME="${CODEX_HOME:-${HOME}/.codex}"
 CONFIG_TOML="${CODEX_HOME}/config.toml"
@@ -108,7 +100,7 @@ PY
 
 CACHE_TARGET="${CACHE_BASE}/${PLUGIN_VERSION}"
 
-echo "Installing Campaign Assistant for Codex..."
+echo "Installing Eko for Codex..."
 echo "Marketplace: ${MARKETPLACE_NAME}"
 echo "Source: ${REPO_ROOT}"
 echo "Version: ${PLUGIN_VERSION}"
@@ -128,7 +120,7 @@ os.makedirs(os.path.dirname(config_path), exist_ok=True)
 if os.path.exists(config_path):
     with open(config_path, "r", encoding="utf-8") as f:
         text = f.read()
-    backup = config_path + ".campaign-assistant-install-backup"
+    backup = config_path + ".eko-install-backup"
     shutil.copy2(config_path, backup)
 else:
     text = ""
@@ -200,24 +192,6 @@ fi
 echo "Updated Codex config: ${CONFIG_TOML}"
 echo "Seeded plugin cache: ${CACHE_TARGET}"
 
-TOKEN_OK=0
-if [[ "${RUN_TOKEN_SETUP}" -eq 1 ]]; then
-  if [[ -x "${TOKEN_SCRIPT}" ]]; then
-    echo
-    echo "Next, enter the Eko MCP token when prompted."
-    if "${TOKEN_SCRIPT}"; then
-      TOKEN_OK=1
-    else
-      echo "Token setup was skipped or failed. The plugin is installed, but MCP memory will return 401 until the token is set."
-    fi
-  else
-    echo "Token setup script is missing or not executable: ${TOKEN_SCRIPT}"
-    echo "The plugin is installed, but MCP memory will return 401 until the token is set."
-  fi
-else
-  echo "Skipped token setup."
-fi
-
 if [[ "${OPEN_PLUGIN}" -eq 1 ]] && command -v open >/dev/null 2>&1; then
   ENCODED_MARKETPLACE="$(urlencode "${MARKETPLACE_JSON}")"
   open "codex://plugins/${PLUGIN_NAME}?marketplacePath=${ENCODED_MARKETPLACE}" >/dev/null 2>&1 || true
@@ -229,17 +203,9 @@ Done.
 
 What to do in Codex:
   1. Fully quit and reopen Codex.
-  2. Open Plugins and confirm Campaign Assistant is installed/enabled.
-  3. Start a new thread before testing @campaign-assistant.
+  2. Open Plugins and confirm Eko is installed/enabled.
+  3. Start a new thread before testing @eko.
+  4. Sign in with an allowed Eko Google Workspace account when mailing memory first requires authentication.
 EOF
-
-if [[ "${TOKEN_OK}" -eq 0 && "${RUN_TOKEN_SETUP}" -eq 1 ]]; then
-  cat <<'EOF'
-
-MCP token note:
-  The plugin install completed, but the token was not confirmed. Run:
-    scripts/setup-campaign-assistant-token.command
-EOF
-fi
 
 pause_if_needed

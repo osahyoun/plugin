@@ -46,22 +46,22 @@ Normalize from these possible inputs:
    Convert sources or campaigner notes into structured evidence. Extract concrete facts, short support snippets, reliability notes, contradictions, and risk flags.
 
 4. **Voice Retrieval**
-   Apply the canonical golden style guide first. Add style summaries only as supporting patterns. Never copy distinctive historical wording.
+   Apply the canonical golden style guide first. Add style summaries only as supporting patterns. Calibrate emotional register from relevant historical examples. Never copy distinctive historical wording.
 
 5. **Structure**
-   Build an email outline before drafting: subject lines, preview text, hook, body sections, CTA, signoff, and optional PS.
+   Build an email outline before drafting: subject lines, preview text, hook, body sections, CTA, signoff, and optional PS. The hook should include a grounded emotional stake, not just background.
 
 6. **Member Action Evaluation**
    Identify the Target of Change, target specificity, member action, member action type, pressure channel, engagement quality, suggested stronger targets, and revision instructions.
 
 7. **Drafting**
-   Produce `subject_line_options`, `preview_text_options`, `body_markdown`, `evidence_map`, and `warnings`.
+   Produce `subject_line_options`, `preview_text_options`, `body_markdown`, `evidence_map`, and `warnings`. Default to medium-high emotion that is vivid, human, morally clear, urgent, and evidence-grounded unless the user asks for a restrained tone.
 
 8. **Fact Check**
    Extract fact-like claims and classify each as supported, partially supported, unsupported, or unverifiable. Offer safer rewrites for weak claims.
 
 9. **Review**
-   Check unsupported claims, weak transitions, tone drift, golden style misses, house structure misses, target specificity, member action clarity, generic filler, and mechanical preview text.
+   Check unsupported claims, weak transitions, emotional dryness, tone drift, golden style misses, house structure misses, target specificity, member action clarity, generic filler, and mechanical preview text.
 
 10. **Progressive Language Review**
     Check people-first framing, self-identification, active voice, precise terms, dignity, and stigmatizing language.
@@ -78,6 +78,7 @@ Normalize from these possible inputs:
 - Constraints: one public action, one clear decision-maker, concrete and quick rather than symbolic.
 - Banned claims: do not claim signing guarantees a policy win; do not imply refusal or bad faith unless sourced.
 - Required points: make the action quick and specific; show why pressure now matters; follow the mandatory petition structure from `campaign-email-structure-requirements.md`.
+- Emotional register: medium-high by default, with one vivid opening stake, clear target accountability, and collective agency near the close.
 - Preferred sources: official reports, official updates, hearing summaries, research briefs, reputable news.
 - Required structure: box text, ATL with 2-4 short paragraphs, first petition landing-page CTA after ATL, BTL with evidence/context, second petition landing-page CTA in BTL or near the close, movement story, and sources.
 
@@ -124,6 +125,7 @@ Normalize from these possible inputs:
 - Preview text should reinforce either the ask or the stake.
 - Lead with one concrete development from a source whenever possible.
 - If evidence is thin, lead with a cautious supporter-facing stake.
+- Do not default to neutral background exposition. Show the human or moral reason the action matters as early as the evidence allows.
 - Body flow: problem or trigger, why it matters now, one clear ask, collective impact.
 - CTA: one verb, named decision-maker where relevant, quick practical action.
 - Petition CTA placement: for petition drafts, the same petition ask must appear twice -- once immediately after ATL and once in BTL or near the close.
@@ -162,5 +164,6 @@ Before treating a draft as ready, check:
 - review stage completed
 - golden style non-negotiables pass
 - house style readiness passes
+- emotional register is source-grounded and not dry
 - progressive language review completed
 - unsupported claims have safer rewrites

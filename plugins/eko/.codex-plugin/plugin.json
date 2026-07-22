@@ -1,0 +1,35 @@
+{
+  "name": "eko",
+  "version": "0.1.1+codex.20260722130111",
+  "description": "Codex-native campaign email drafting and review plugin for Eko.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Eko",
+    "shortDescription": "Strategize, draft, review, and monitor campaign emails with mailing memory.",
+    "longDescription": "Eko is a Codex plugin that mirrors the Eko drafter pipeline for campaign strategy, campaign email drafting, source-aware claims, target-of-change readiness, house voice, progressive language review, campaign monitoring prompts, and retrieval of high-performing or cautionary historical mailings through the production super-search MCP server.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Campaign email drafting",
+      "Campaign strategy memory",
+      "Historical mailing memory",
+      "Curated mailing examples",
+      "Evidence review",
+      "CTA strategy",
+      "Campaign update monitoring",
+      "Progressive language review",
+      "Structured text outputs"
+    ],
+    "defaultPrompt": [
+      "Draft a campaign email from this brief.",
+      "Strategize this campaign using past mailing memory.",
+      "Review this mailing draft before launch.",
+      "Create a daily monitor for this campaign draft."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

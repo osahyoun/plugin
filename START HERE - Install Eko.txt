@@ -1,0 +1,16 @@
+Install Eko for Codex
+
+1. Double-click:
+
+   Install Eko.command
+
+2. Fully quit and reopen Codex.
+
+3. Start a new Codex thread and use Eko.
+
+4. Sign in with an allowed Eko Google Workspace account when mailing memory first requires authentication.
+
+If macOS blocks the installer, right-click "Install Eko.command",
+choose Open, then approve the prompt.
+
+The installer does not require the Codex CLI.

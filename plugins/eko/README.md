@@ -1,14 +1,14 @@
-# Campaign Assistant Plugin
+# Eko Plugin
 
-Campaign Assistant is a strict Codex plugin. It runs inside Codex through text prompts, skill instructions, and the `super-search` HTTP MCP server for mailing memory.
+Eko is a strict Codex plugin. It runs inside Codex through text prompts, skill instructions, and the `super-search` HTTP MCP server for mailing memory.
 
 ## Plugin Contents
 
 - `.codex-plugin/plugin.json` - plugin manifest
 - `.mcp.json` - production HTTP MCP server config for `super-search`
-- `skills/campaign-assistant/SKILL.md` - primary Codex skill
-- `skills/campaign-assistant/references/` - drafter-inspired workflow, prompt templates, and language guidance
-- `skills/campaign-assistant/references/example-mailings/` - curated historical mailing examples for draft voice and format anchors
+- `skills/eko/SKILL.md` - primary Codex skill
+- `skills/eko/references/` - drafter-inspired workflow, prompt templates, and language guidance
+- `skills/eko/references/example-mailings/` - curated historical mailing examples for draft voice and format anchors
 
 There is no local web app in this plugin.
 
@@ -20,25 +20,9 @@ The plugin expects `super-search` to expose production MCP at:
 https://labs.eko.org/mcp
 ```
 
-Production access requires a bearer token in:
+Production access uses OAuth against `labs.eko.org`. Codex should send campaigners through Google sign-in and the server will only issue MCP tokens for allowed `eko.org` Workspace accounts.
 
-```bash
-EKO_SUPER_SEARCH_MCP_TOKEN
-```
-
-The plugin sends that token through the `super-search-mailing-memory` MCP server config.
-
-Recipients do not need to run `super-search` locally. The installed plugin calls the remote MCP server above and sends the bearer token from `EKO_SUPER_SEARCH_MCP_TOKEN`.
-
-For Codex app users who do not use the Codex CLI, run the zip-level helper:
-
-```text
-scripts/setup-campaign-assistant-token.command
-```
-
-It prompts for the token, stores it locally with restricted permissions, and
-sets up a macOS login loader so Codex.app can read `EKO_SUPER_SEARCH_MCP_TOKEN`
-after restart.
+Recipients do not need to run `super-search` locally or paste a shared bearer token. The installed plugin calls the remote MCP server above and uses the server's OAuth metadata when authentication is required.
 
 When strategizing, the skill calls `campaign_strategy_memory` to fetch strong historical analogues, optional lower-performing analogues, benchmarks, and strategy prompts. When drafting, it calls `high_performing_examples` to fetch a few similar, high-performing historical mailings as voice and format references.
 

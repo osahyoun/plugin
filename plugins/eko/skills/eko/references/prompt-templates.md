@@ -11,6 +11,7 @@ Use these as the Codex-native equivalents of the drafter prompt templates.
 - When discovering sources, look for relevant and reputable material rather than only coverage that confirms the campaign stance.
 - When evidence is insufficient, soften or remove claims instead of smoothing over the gap.
 - Prefer concrete language over generic activist cliches.
+- Do not let caution turn the copy into a neutral policy memo. Keep the moral and human stakes visible where evidence supports them.
 - Do not present weak inference as established fact.
 - Surface uncertainty explicitly when needed.
 
@@ -141,6 +142,8 @@ Rules:
 - Treat the golden style guide as higher priority than any example.
 - Extract reusable style patterns, not surface wording.
 - Focus on rhythm, stance, directness, CTA habits, and signoff habits.
+- Set `emotional_register` explicitly. Default to medium-high emotion for campaign mailings: vivid, human, urgent, morally clear, and grounded in evidence.
+- Capture where the emotion should sit: the opening stake, target contrast, human/community detail, CTA conviction, movement story, or signoff warmth.
 - Do not copy distinctive historical sentences.
 - Do not create voice guidance that encourages unsupported claims.
 
@@ -166,6 +169,7 @@ Rules:
 
 - Build hook -> body flow -> CTA.
 - Keep the CTA singular and concrete.
+- Make the hook emotionally legible, not just informational: identify the harm, risk, hypocrisy, opportunity, or human stake that makes action feel worth taking now.
 - Subject and preview options must match the campaign goal and audience.
 - Do not write the full email body in the structure stage.
 - Do not propose hooks that require unsupported facts.
@@ -209,6 +213,8 @@ Rules:
 - Keep the draft auditable by mapping major claims to evidence.
 - If evidence is incomplete, write a cautious version rather than a bolder unsupported one.
 - Open on one concrete development, stake, or supporter-facing consequence.
+- Calibrate emotion before drafting. Unless the user requests a restrained tone, use medium-high emotion: one vivid opening stake, clear target accountability, one grounded human or community consequence when available, and collective agency near the close.
+- Make the draft feel like it is written to a supporter, not a briefing note. The reader should understand why this matters to people and why their action can help.
 - For petition emails, the body must follow `campaign-email-structure-requirements.md`: box text, ATL with 2-4 short paragraphs, first petition landing-page CTA after ATL, BTL with evidence/context, second petition landing-page CTA in BTL or near the close, movement story, and sources.
 - The two petition CTAs must point to the same action and reinforce the same core ask. If the landing-page URL is unknown, use `[PETITION LINK]` as a placeholder.
 - Keep one clear ask, one main verb, and one decision-maker whenever possible.
@@ -221,6 +227,8 @@ Do not:
 - fabricate numbers, dates, quotes, outcomes, or source URLs
 - hide weak evidence
 - write generic activist copy detached from the brief
+- write sterile, institutional prose that hides the people, harm, target accountability, or reason to act now
+- add unsupported outrage, invented motives, or emotional claims that the sources do not carry
 - leave internal audit scaffolding in the email body
 
 ## Fact Check Agent
@@ -254,6 +262,7 @@ Focus areas:
 - unsupported claims
 - weak transitions
 - tone drift
+- dryness or missing emotional stake
 - mismatch with golden style guide or voice checklist
 - structural gaps
 - CTA clarity
@@ -267,6 +276,7 @@ Rules:
 
 - Give specific edits, not vague criticism.
 - Distinguish factual risk from stylistic preference.
+- If a draft is emotionally flat, identify the exact section that needs a grounded stake, human detail, target contrast, warmer signoff, or sharper CTA.
 - Escalate any golden-style miss explicitly.
 - Do not approve unsupported claims because the email basically works.
 
@@ -322,6 +332,7 @@ Rules:
 - Remove or soften unsupported claims before final output.
 - Apply progressive language review without adding new facts.
 - Preserve approved voice and house structure where possible.
+- Preserve emotional force when softening claims: replace unsupported outrage with supported stakes, named accountability, and practical urgency rather than removing feeling entirely.
 - Keep reviewer notes concise and audit-friendly.
 - If evidence remains weak, keep the final copy visibly cautious.
 - Do not reintroduce claims that fact-check removed.

@@ -38,7 +38,7 @@ Requirements:
 - Keep ATL short: 2-4 short paragraphs maximum.
 - Assume most readers are on mobile, so paragraphs should be brief and easy to scan.
 - Include urgency, momentum, and theory of change.
-- Write as if explaining to a close friend why they should take action now.
+- Write as if explaining to a close friend why they should take action now, including the felt stake behind the facts.
 - Make the opening sentence earn attention immediately.
 - Do not overload ATL with background detail. Put deeper evidence and context below the link.
 
@@ -47,6 +47,7 @@ An effective ATL should contain:
 - A strong opening sentence.
 - A crisistunity: the live crisis or opportunity where action can change what happens next.
 - A theory of change: why this action, aimed at this target, can plausibly move the outcome.
+- A grounded emotional reason to care: harm, risk, hypocrisy, courage, solidarity, or a concrete win within reach.
 
 ## Opening Sentence
 
@@ -58,6 +59,7 @@ Requirements:
 - Prefer a live fact, vivid consequence, or strategic opportunity over static background.
 - Avoid starting with a dry institutional description unless it immediately creates urgency.
 - Make the reader feel the issue is current and actionable.
+- Avoid openings that merely announce a report, law, meeting, or campaign unless they immediately connect it to people, power, and action.
 
 Good opening patterns:
 
@@ -175,6 +177,7 @@ Requirements:
 - Include facts for more discerning readers.
 - Provide background and context for readers who are not following the issue.
 - Include stories of people affected by the issue, especially marginalized voices, where sourced and appropriate.
+- If no sourced affected-person story is available, include a concrete community consequence, supporter-facing stake, or target accountability detail instead of inventing a personal story.
 - Include the timeframe or deadline, while also making sure the deadline appears above the link.
 - Develop the protagonist and antagonist clearly.
 - Break up walls of text with the repeated petition call to action or link.
@@ -227,6 +230,7 @@ Requirements:
 - Avoid dense walls of text.
 - Keep language informal but anti-oppressive.
 - Treat readers as humans, not just action-takers.
+- Preserve warmth and moral urgency. A safe draft should still make clear why the issue matters to people and why acting now is worth doing.
 - Make sure the email can stand alone.
 - Show, do not just tell.
 - Keep member focus clear, while being careful with "us" and "them" framing.
@@ -238,6 +242,7 @@ Before a petition email is ready, check:
 
 - Does the ATL have 2-4 short paragraphs?
 - Does the opening sentence make the reader want to continue?
+- Does the ATL include a grounded emotional stake, not just background facts?
 - Is there a clear crisistunity?
 - Is there a clear theory of change?
 - Is the first petition link placed after the ATL?

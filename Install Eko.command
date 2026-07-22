@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALLER="${ROOT_DIR}/scripts/install-campaign-assistant.command"
+INSTALLER="${ROOT_DIR}/scripts/install-eko.command"
 
 if [[ ! -x "${INSTALLER}" ]]; then
   echo "error: installer script is missing or not executable:"

@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PLUGIN_NAME="eko"
+
+LAUNCH=1
+OPEN_PLUGIN=1
+
+usage() {
+  cat <<'USAGE'
+Install and run the Eko Codex plugin.
+
+Usage:
+  ./scripts/codex-eko [options]
+
+Options:
+  --no-launch       Install/open the plugin, but do not launch the Codex CLI.
+  --no-open         Do not open the Codex plugin page.
+  -h, --help        Show this help.
+USAGE
+}
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+find_codex() {
+  if command -v codex >/dev/null 2>&1; then
+    command -v codex
+    return
+  fi
+
+  local macos_app_cli="/Applications/Codex.app/Contents/Resources/codex"
+  if [[ "$(uname -s)" == "Darwin" && -x "${macos_app_cli}" ]]; then
+    echo "${macos_app_cli}"
+    return
+  fi
+
+  die "Codex CLI not found. Install Codex CLI or the Codex app, then rerun this script."
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --no-launch)
+      LAUNCH=0
+      shift
+      ;;
+    --no-open)
+      OPEN_PLUGIN=0
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage >&2
+      die "unknown option: $1"
+      ;;
+  esac
+done
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+MARKETPLACE_JSON="${REPO_ROOT}/.agents/plugins/marketplace.json"
+
+[[ -f "${MARKETPLACE_JSON}" ]] || die "missing marketplace file: ${MARKETPLACE_JSON}"
+[[ -d "${REPO_ROOT}/plugins/${PLUGIN_NAME}" ]] || die "missing plugin directory: ${REPO_ROOT}/plugins/${PLUGIN_NAME}"
+
+CODEX_BIN="$(find_codex)"
+
+echo "Using Codex: ${CODEX_BIN}"
+echo "Adding plugin marketplace from: ${REPO_ROOT}"
+"${CODEX_BIN}" plugin marketplace add "${REPO_ROOT}"
+
+if [[ "${OPEN_PLUGIN}" -eq 1 && "$(uname -s)" == "Darwin" ]] && command -v open >/dev/null 2>&1 && command -v python3 >/dev/null 2>&1; then
+  ENCODED_MARKETPLACE="$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "${MARKETPLACE_JSON}")"
+  open "codex://plugins/${PLUGIN_NAME}?marketplacePath=${ENCODED_MARKETPLACE}" >/dev/null 2>&1 || true
+fi
+
+cat <<EOF
+
+Next:
+  1. In Codex, install or enable '${PLUGIN_NAME}' from the Eko marketplace.
+  2. Start a new thread.
+  3. Try:
+     @eko Strategize this campaign using similar past mailings: pressure a supermarket chain to reduce single-use plastic packaging.
+
+MCP auth:
+  Sign in with an allowed Eko Google Workspace account when mailing memory first requires authentication.
+EOF
+
+if [[ "${LAUNCH}" -eq 1 ]]; then
+  echo
+  echo "Launching Codex CLI..."
+  exec "${CODEX_BIN}"
+fi
