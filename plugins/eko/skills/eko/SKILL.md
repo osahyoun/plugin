@@ -1,11 +1,13 @@
 ---
 name: eko
-description: Use when campaigners need Codex-native help drafting or reviewing campaign emails, CTAs, evidence-grounded mailing copy, source-aware reviewer notes, and progressive-language-safe campaign outputs.
+description: Use when campaigners need Codex-native campaign data analysis, fundraising and action outcomes, historical mailing memory, email drafting or review, CTAs, evidence-grounded copy, source-aware reviewer notes, and progressive-language-safe campaign outputs.
 ---
 
 # Eko
 
-Eko is a Codex-native plugin. Do not open or run a web app for this skill. Work in Codex text, using the mailing-memory MCP tools when available.
+Eko is a Codex-native plugin. Do not open or run a web app for this skill. Work
+in Codex text, using the campaign data and mailing-memory MCP tools when
+available.
 
 Use this skill when the user asks to:
 
@@ -13,6 +15,8 @@ Use this skill when the user asks to:
 - strategize a campaign using similar historical mailings
 - answer what has been tried before on an issue, target, tactic, or language
 - compare possible CTAs, targets, pressure channels, or mailing angles using past performance signals
+- answer quantitative questions about mailing performance, campaign topics, fundraising, donors, or actions
+- compare campaign performance across dates, languages, action types, tags, or canonical topics
 - turn a rough campaign idea into mailing copy
 - produce subject lines, preview text, body copy, evidence maps, or reviewer notes
 - review a campaign mailing for target clarity, CTA strength, house voice, evidence support, or progressive language
@@ -42,7 +46,7 @@ Mirror the drafter service pipeline:
 
 1. Intake: normalize the raw brief without inventing facts.
 2. Source posture: use supplied URLs or notes; if source discovery is needed and allowed, search for reliable primary or reputable sources. If evidence is missing, draft cautiously and mark the gap.
-3. Mailing memory retrieval: use historical mailing memory when the `super-search-mailing-memory` MCP server is available. For strategy and planning, call `campaign_strategy_memory`. For drafting, call `high_performing_examples`.
+3. MCP routing: use `campaign_analytics` for quantitative mailing-performance questions, `campaign_outcomes` for donation- or action-event outcomes, `campaign_strategy_memory` for strategy and planning, and `high_performing_examples` for drafting.
 4. Voice retrieval: apply the golden style guide and approved voice principles. Use patterns, not copied wording. Calibrate the emotional register from relevant historical examples.
 5. Structure: build subject lines, preview text, hook, body flow, CTA, signoff, and optional PS before drafting. The hook should include a grounded emotional stake, not just background. For petition drafts, the outline must follow `references/campaign-email-structure-requirements.md`.
 6. Member action evaluation: identify the Target of Change, target specificity, member action, action type, pressure channel, and readiness.
@@ -83,6 +87,73 @@ For substantive drafting requests:
 8. Use the curated static examples in `references/example-mailings/` as fallback and baseline house-format anchors. Prefer live MCP examples when they are more relevant, but always compare the draft structure against at least one curated example.
 
 If the MCP server is unavailable, continue with the static references and add a warning that historical mailing memory was not available.
+
+## Campaign Data MCP
+
+The same `super-search-mailing-memory` MCP server can advertise two constrained,
+privacy-safe data tools. Availability is conditional on the production service
+having its read-only analytics databases configured.
+
+### Tool routing
+
+Use `campaign_analytics` for aggregate questions about mailings sent during a
+date range:
+
+- recipients, opens, clicks, actions, orders, mailing-attributed amount,
+  unsubscribes, bounces, and complaints;
+- recipient-weighted rates and average donation;
+- trends or comparisons by period, campaign, language, action type, subject,
+  raw tag, or accepted canonical topic; and
+- identifying high-performing mailing cohorts before using `search` or `fetch`
+  for specific creative examples.
+
+Use `campaign_outcomes` for questions whose date refers to when a donation or
+action happened:
+
+- organisation-wide amount raised, donation records, or unique donors;
+- unique action takers and action records;
+- donor/action overlap; and
+- outcomes attributed to a supported, versioned campaign topic.
+
+Never calculate quantitative totals from semantic `search`,
+`high_performing_examples`, or `campaign_strategy_memory` results. Those tools
+return selected historical examples, not a complete analytical population. Do
+not substitute mailing-attributed amount for event-time giving.
+
+Examples:
+
+- "How much was raised yesterday?" -> `campaign_outcomes` with
+  `analysis=giving`, the same inclusive date for `date_from` and `date_to`, and
+  `breakdown=none`.
+- "How did action rate trend by topic last year?" -> `campaign_analytics` with
+  `action_rate`, `recipients`, and `mailings`, grouped by period and topic.
+- "Which subject lines did our strongest petitions use?" -> first use
+  `campaign_analytics` to identify the relevant cohort, then use `search` or
+  `fetch` for representative creative examples.
+
+### Analytical safeguards
+
+1. Resolve relative dates from the current conversation date and state the
+   concrete inclusive date range used.
+2. Treat outcome dates as UTC unless the tool adds an explicit timezone
+   parameter. State this when a local-day boundary could change the answer.
+3. Always report the returned freshness, active filters, denominator or cohort
+   size, and applicable metric definitions.
+4. For a closed-period outcome such as "yesterday", do not call the result
+   exact if freshness does not extend beyond the requested period. Label it
+   incomplete and explain that a catch-up sync is required.
+5. Treat suppressed or missing groups as unavailable, never as zero.
+6. Use recipient-weighted rates returned by `campaign_analytics`; do not
+   average precomputed rates.
+7. Topic and raw-tag groups can overlap. Do not sum those rows into an
+   organisation-wide total.
+8. Keep observational comparisons distinct from causal claims.
+9. For substantial quantitative reports, use separate calls for the overview,
+   time trend, and relevant driver cuts rather than forcing every grouping into
+   one query.
+10. If the required data tool is unavailable, say that the aggregate service
+    is not configured or reachable. Do not replace it with an estimate from
+    mailing memory.
 
 ## Strategy Output
 

@@ -1,6 +1,8 @@
 # Eko Plugin
 
-Eko is a strict Codex plugin. It runs inside Codex through text prompts, skill instructions, and the `super-search` HTTP MCP server for mailing memory.
+Eko is a strict Codex plugin. It runs inside Codex through text prompts, skill
+instructions, and the `super-search` HTTP MCP server for privacy-safe campaign
+analytics, fundraising outcomes, and mailing memory.
 
 ## Plugin Contents
 
@@ -12,7 +14,7 @@ Eko is a strict Codex plugin. It runs inside Codex through text prompts, skill i
 
 There is no local web app in this plugin.
 
-## Mailing Memory
+## Campaign Data and Mailing Memory
 
 The plugin expects `super-search` to expose production MCP at:
 
@@ -20,11 +22,19 @@ The plugin expects `super-search` to expose production MCP at:
 https://labs.eko.org/mcp
 ```
 
-Production access uses OAuth against `labs.eko.org`. Codex should send campaigners through Google sign-in and the server will only issue MCP tokens for allowed `eko.org` Workspace accounts.
+Production access uses OAuth against `labs.eko.org`. Codex should send
+campaigners through Google sign-in and the server will only issue MCP tokens
+for allowed `eko.org` Workspace accounts.
 
 Recipients do not need to run `super-search` locally or paste a shared bearer token. The installed plugin calls the remote MCP server above and uses the server's OAuth metadata when authentication is required.
 
-When strategizing, the skill calls `campaign_strategy_memory` to fetch strong historical analogues, optional lower-performing analogues, benchmarks, and strategy prompts. When drafting, it calls `high_performing_examples` to fetch a few similar, high-performing historical mailings as voice and format references.
+For quantitative work, the skill calls `campaign_analytics` for mailing-level
+performance and `campaign_outcomes` for event-time fundraising and action
+outcomes. When strategizing, it calls `campaign_strategy_memory` to fetch
+strong historical analogues, optional lower-performing analogues, benchmarks,
+and strategy prompts. When drafting, it calls `high_performing_examples` to
+fetch a few similar, high-performing historical mailings as voice and format
+references.
 
 The plugin also includes three static DB-sourced examples so drafts still have concrete house-format anchors:
 
@@ -39,6 +49,8 @@ After installing the plugin, start a new Codex thread and ask for work such as:
 - `Draft a petition email from this campaign brief: ...`
 - `Strategize this campaign using similar past mailings: ...`
 - `What have we tried before on this issue, and what seemed to perform?`
+- `How much was raised yesterday?`
+- `Compare action rates by campaign topic over the last year.`
 - `Review this mailing draft against the campaign language guide: ...`
 - `Turn these source notes into a campaign email with subject lines, preview text, evidence map, and warnings.`
 

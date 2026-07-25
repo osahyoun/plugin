@@ -1,8 +1,12 @@
 # Eko
 
-Eko is a Codex-native plugin for campaign email drafting and review.
+Eko is a Codex-native plugin for campaign analytics, historical mailing memory,
+campaign email drafting, and review.
 
-There is no companion web app. The plugin works through the Codex skill at `plugins/eko/skills/eko/SKILL.md` and can use the production `super-search` HTTP MCP server for historical mailing memory.
+There is no companion web app. The plugin works through the Codex skill at
+`plugins/eko/skills/eko/SKILL.md` and uses the production `super-search` HTTP
+MCP server for privacy-safe analytics, fundraising outcomes, and historical
+mailing memory.
 
 ## Codex App Setup
 
@@ -16,7 +20,7 @@ Install Eko.command
 
 2. Fully quit and reopen Codex.
 3. Start a new thread and use Eko.
-4. Sign in with an allowed Eko Google Workspace account when mailing memory first requires authentication.
+4. Sign in with an allowed Eko Google Workspace account when campaign data or mailing memory first requires authentication.
 
 The installer does not require the Codex CLI. It registers this folder as a
 local Codex marketplace, enables `eko`, seeds the local Codex
@@ -77,6 +81,8 @@ After installing the marketplace, restart Codex, open Plugins, select the market
 ## What The Plugin Does
 
 - turns rough campaign ideas into evidence-aware campaign email drafts
+- answers aggregate questions about mailing performance, topics, fundraising,
+  donors, and actions through constrained privacy-safe tools
 - helps campaigners strategize using similar high-performing and cautionary historical mailings
 - mirrors the staged drafter pipeline
 - retrieves a few similar high-performing historical mailings from `super-search`
@@ -87,7 +93,7 @@ After installing the marketplace, restart Codex, open Plugins, select the market
 - applies progressive language guidance
 - returns campaigner-visible output plus warnings and review notes
 
-## Mailing Memory MCP
+## Campaign Data and Mailing Memory MCP
 
 The plugin points at:
 
@@ -95,12 +101,18 @@ The plugin points at:
 https://labs.eko.org/mcp
 ```
 
-Production mailing memory uses OAuth against `labs.eko.org`. Recipients do not
+Production campaign data and mailing memory use OAuth against `labs.eko.org`. Recipients do not
 need to run `super-search` locally or handle a shared bearer token. When
 authentication is required, Codex should send the user through Google sign-in;
 the server restricts access to allowed Eko Workspace accounts.
 
 The plugin uses:
 
+- `campaign_analytics` for aggregate mailing-performance trends and comparisons
+- `campaign_outcomes` for event-time giving, donor, and action outcomes
 - `campaign_strategy_memory` for planning, "what have we tried before", target/CTA strategy, and sequencing questions
 - `high_performing_examples` for drafting voice and format references
+
+The two analytics tools are advertised only when their read-only databases are
+configured and healthy on the production MCP service. Raw SQL, supporter
+records, and database credentials are never exposed to the plugin.

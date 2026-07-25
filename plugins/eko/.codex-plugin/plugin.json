@@ -1,7 +1,7 @@
 {
   "name": "eko",
-  "version": "0.1.1+codex.20260722130111",
-  "description": "Codex-native campaign email drafting and review plugin for Eko.",
+  "version": "0.1.2+codex.20260725145947",
+  "description": "Codex-native campaign analytics, historical memory, email drafting, and review plugin for Eko.",
   "author": {
     "name": "Local developer"
   },
@@ -9,14 +9,16 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Eko",
-    "shortDescription": "Strategize, draft, review, and monitor campaign emails with mailing memory.",
-    "longDescription": "Eko is a Codex plugin that mirrors the Eko drafter pipeline for campaign strategy, campaign email drafting, source-aware claims, target-of-change readiness, house voice, progressive language review, campaign monitoring prompts, and retrieval of high-performing or cautionary historical mailings through the production super-search MCP server.",
+    "shortDescription": "Analyze campaigns, explore mailing memory, and draft, review, or monitor campaign emails.",
+    "longDescription": "Eko is a Codex plugin for privacy-safe campaign performance and fundraising analysis, historical mailing memory, campaign strategy, evidence-aware email drafting, target-of-change readiness, house voice, progressive language review, and campaign monitoring through the production super-search MCP server.",
     "developerName": "Local developer",
     "category": "Productivity",
     "capabilities": [
       "Campaign email drafting",
       "Campaign strategy memory",
       "Historical mailing memory",
+      "Campaign performance analytics",
+      "Privacy-safe fundraising outcomes",
       "Curated mailing examples",
       "Evidence review",
       "CTA strategy",
@@ -27,6 +29,7 @@
     "defaultPrompt": [
       "Draft a campaign email from this brief.",
       "Strategize this campaign using past mailing memory.",
+      "How much was raised yesterday?",
       "Review this mailing draft before launch.",
       "Create a daily monitor for this campaign draft."
     ],
