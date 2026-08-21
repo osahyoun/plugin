@@ -1,7 +1,8 @@
 # Eko
 
 Eko is a Codex-native plugin for campaign analytics, historical mailing memory,
-campaign email drafting, and review.
+campaign email drafting and review, monitoring, and Prosecco-native campaign
+microsites.
 
 There is no companion web app. The plugin works through the Codex skill at
 `plugins/eko/skills/eko/SKILL.md` and uses the production `super-search` HTTP
@@ -64,16 +65,18 @@ The script will:
 
 ## Manual Install
 
-Add this repository as a Codex plugin marketplace:
+Add the public repository as a Codex plugin marketplace, then install Eko:
 
 ```bash
-codex plugin marketplace add git@github.com:osahyoun/plugin.git
+codex plugin marketplace add osahyoun/plugin --ref main
+codex plugin add eko@eko
 ```
 
 If the Codex app is installed but `codex` is not on your shell path, use the bundled macOS binary:
 
 ```bash
-/Applications/Codex.app/Contents/Resources/codex plugin marketplace add git@github.com:osahyoun/plugin.git
+/Applications/Codex.app/Contents/Resources/codex plugin marketplace add osahyoun/plugin --ref main
+/Applications/Codex.app/Contents/Resources/codex plugin add eko@eko
 ```
 
 After installing the marketplace, restart Codex, open Plugins, select the marketplace, and install `eko`. Start a new Codex thread so the skill instructions are loaded.
@@ -92,6 +95,18 @@ After installing the marketplace, restart Codex, open Plugins, select the market
 - fact-checks claims against supplied or discovered evidence
 - applies progressive language guidance
 - returns campaigner-visible output plus warnings and review notes
+- associates an existing Prosecco action page and prepares a branded microsite without
+  inventing a parallel petition or payment form
+- defines the universal-canvas boundary: the LLM controls campaign story and component
+  placement while reviewed Prosecco components control fields, consent, CAPTCHA,
+  member prefill, sharing, Braintree, 3-D Secure, PayPal, and submission behaviour
+- treats each creative revision as a validated page-bundle update and forbids
+  campaign-specific Prosecco application code as an iteration shortcut
+
+The universal no-redeploy publishing path requires matching support in the target
+Prosecco environment. Until that capability is advertised, the plugin keeps the
+microsite in preview and reports the publish blocker rather than hardwiring the
+campaign into the shared application.
 
 ## Campaign Data and Mailing Memory MCP
 

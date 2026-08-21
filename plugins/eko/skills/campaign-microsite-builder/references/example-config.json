@@ -1,0 +1,53 @@
+{
+  "campaign": {
+    "slug": "protect-the-wetlands",
+    "title": "Protect the wetlands",
+    "eyebrow": "A campaign by Ekō",
+    "headline": "Tell the Environment Secretary to protect these wetlands",
+    "summary": "Add a short, evidence-backed summary of the threat and the opportunity to act.",
+    "target": "The Environment Secretary",
+    "demand": "Use the available powers to protect the wetlands now.",
+    "whyNow": "Explain the decision window without inventing urgency.",
+    "proofPoints": [
+      "Add one concise source-backed fact.",
+      "Add a second source-backed fact."
+    ],
+    "publicUrl": "https://example.org/protect-the-wetlands",
+    "sourceLabel": "Campaign sources",
+    "sourceUrl": "https://example.org/source"
+  },
+  "action": {
+    "pageId": 12345,
+    "ctaLabel": "Sign the petition",
+    "successTitle": "Thank you for taking action",
+    "successMessage": "Now help more people add their voice."
+  },
+  "share": {
+    "message": "I signed this petition. Will you join me?",
+    "hashtag": "PeoplePower"
+  },
+  "donation": {
+    "enabled": true,
+    "pageId": 67890,
+    "currency": "GBP",
+    "merchantAccounts": {
+      "GBP": "sumofus2_GBP"
+    },
+    "amounts": [5, 10, 20],
+    "defaultAmount": 10,
+    "minimumAmount": 1,
+    "maximumAmount": 5000,
+    "monthlyEnabled": true,
+    "heading": "Power the next campaign",
+    "message": "A small gift helps Ekō keep up the pressure."
+  },
+  "brand": {
+    "logoPath": "/assets/eko-logo-purple.svg",
+    "organisationName": "Ekō"
+  },
+  "legal": {
+    "privacyUrl": "https://www.eko.org/privacy/",
+    "consentLabel": "I agree to the privacy policy and consent to be contacted about this campaign."
+  },
+  "demoMode": true
+}

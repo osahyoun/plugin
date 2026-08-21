@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#6400ff">
+    <meta name="description" content="__CAMPAIGN_SUMMARY__">
+    <meta property="og:title" content="__CAMPAIGN_TITLE__">
+    <meta property="og:description" content="__CAMPAIGN_SUMMARY__">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>__CAMPAIGN_TITLE__</title>
+    <link rel="stylesheet" href="/site.css">
+    <script defer src="https://js.braintreegateway.com/web/3.101.2/js/client.min.js"></script>
+    <script defer src="https://js.braintreegateway.com/web/3.101.2/js/hosted-fields.min.js"></script>
+    <script defer src="https://js.braintreegateway.com/web/3.101.2/js/three-d-secure.min.js"></script>
+    <script defer src="https://js.braintreegateway.com/web/3.101.2/js/data-collector.min.js"></script>
+    <script defer src="/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#petition">Skip to the petition</a>
+
+    <header class="site-header">
+      <a class="brand-link" href="#top" aria-label="Ekō campaign home">
+        <img data-logo class="brand-logo" src="/assets/eko-logo-purple.svg" alt="Ekō">
+      </a>
+      <a class="header-action" href="#petition">Take action</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-eyebrow>A campaign by Ekō</p>
+          <h1 data-headline>Campaign headline</h1>
+          <p class="hero-summary" data-summary>Campaign summary</p>
+          <div class="hero-target">
+            <span>Our demand to</span>
+            <strong data-target>the decision-maker</strong>
+          </div>
+          <a class="button button-primary button-large" href="#petition" data-action-label>
+            Sign the petition
+          </a>
+        </div>
+
+        <aside class="action-card" id="petition" aria-labelledby="petition-title">
+          <div class="step-label">Step 1 of 3 · Take action</div>
+          <h2 id="petition-title">Add your name</h2>
+          <blockquote data-demand>The petition demand appears here.</blockquote>
+
+          <form id="petition-form">
+            <div class="field">
+              <label for="supporter-name">Name</label>
+              <input id="supporter-name" name="name" type="text" autocomplete="name" required minlength="2">
+            </div>
+            <div class="field">
+              <label for="supporter-email">Email</label>
+              <input id="supporter-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            </div>
+            <div class="field">
+              <label for="supporter-country">Country or region</label>
+              <input id="supporter-country" name="country" type="text" autocomplete="country" placeholder="e.g. GB">
+            </div>
+            <label class="consent" for="supporter-consent">
+              <input id="supporter-consent" name="consent" type="checkbox" required>
+              <span data-consent-label>
+                I agree to the privacy policy and consent to be contacted about this campaign.
+              </span>
+            </label>
+            <p class="form-note">
+              Read our <a data-privacy-link href="https://www.eko.org/privacy/" target="_blank" rel="noreferrer">privacy policy</a>.
+            </p>
+            <button class="button button-primary button-full" type="submit" data-petition-submit>
+              Sign the petition
+            </button>
+            <p class="form-status" id="petition-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <noscript>
+            <p class="form-error">JavaScript is required to submit this action securely.</p>
+          </noscript>
+        </aside>
+      </section>
+
+      <section class="context-section" aria-labelledby="why-now-title">
+        <div>
+          <p class="eyebrow">Why now</p>
+          <h2 id="why-now-title">This is a moment to act</h2>
+          <p class="why-now" data-why-now></p>
+          <a class="source-link" data-source-link hidden target="_blank" rel="noreferrer">Campaign sources</a>
+        </div>
+        <ul class="proof-list" data-proof-list></ul>
+      </section>
+
+      <section class="post-action" id="post-action" hidden aria-labelledby="share-title">
+        <div class="journey-progress" aria-label="Campaign action progress">
+          <span class="complete">1. Signed</span>
+          <span class="active">2. Share</span>
+          <span>3. Donate</span>
+        </div>
+
+        <div class="share-panel">
+          <p class="eyebrow">Step 2 of 3 · Grow the pressure</p>
+          <h2 id="share-title" data-success-title>Thank you for taking action</h2>
+          <p data-success-message>Now help more people add their voice.</p>
+          <div class="share-grid" aria-label="Share this campaign">
+            <a class="share-button" data-share-facebook target="_blank" rel="noreferrer">Facebook</a>
+            <a class="share-button" data-share-whatsapp target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="share-button" data-share-bluesky target="_blank" rel="noreferrer">Bluesky</a>
+            <a class="share-button" data-share-email>Email</a>
+            <button class="share-button" type="button" data-share-native>Share…</button>
+            <button class="share-button" type="button" data-share-copy>Copy link</button>
+          </div>
+          <p class="form-status" id="share-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="donation-panel" id="donate" aria-labelledby="donation-title">
+          <p class="eyebrow">Step 3 of 3 · Keep it going</p>
+          <h2 id="donation-title" data-donation-heading>Power the next campaign</h2>
+          <p data-donation-message>A small gift helps Ekō keep up the pressure.</p>
+
+          <form id="donation-form">
+            <fieldset class="frequency-selector" data-frequency-selector>
+              <legend>Donation frequency</legend>
+              <label>
+                <input type="radio" name="frequency" value="once" checked>
+                One time
+              </label>
+              <label data-monthly-option>
+                <input type="radio" name="frequency" value="monthly">
+                Monthly
+              </label>
+            </fieldset>
+
+            <fieldset class="amount-selector">
+              <legend>Choose an amount</legend>
+              <div class="amount-grid" data-amount-grid></div>
+              <label class="custom-amount" for="custom-amount">
+                <span>Other amount</span>
+                <span class="amount-input">
+                  <span data-currency-symbol>£</span>
+                  <input id="custom-amount" type="number" inputmode="decimal" step="1">
+                </span>
+              </label>
+            </fieldset>
+
+            <div class="secure-payment" data-secure-payment>
+              <div class="secure-heading">
+                <strong>Secure card payment</strong>
+                <span>Braintree Hosted Fields</span>
+              </div>
+              <label for="braintree-card-number">Card number</label>
+              <div id="braintree-card-number" class="hosted-field"></div>
+              <div class="hosted-field-row">
+                <div>
+                  <label for="braintree-expiration-date">Expiry</label>
+                  <div id="braintree-expiration-date" class="hosted-field"></div>
+                </div>
+                <div>
+                  <label for="braintree-cvv">CVV</label>
+                  <div id="braintree-cvv" class="hosted-field"></div>
+                </div>
+              </div>
+            </div>
+
+            <label class="consent vault-option" for="store-in-vault">
+              <input id="store-in-vault" type="checkbox">
+              <span>Remember this payment method securely for future support.</span>
+            </label>
+
+            <div id="turnstile-container" class="turnstile-container"></div>
+
+            <button class="button button-primary button-full" type="submit" data-donation-submit>
+              Donate securely
+            </button>
+            <p class="payment-note">
+              Card details are collected by Braintree and never pass through this site.
+            </p>
+            <p class="form-status" id="donation-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="donation-success" data-donation-success hidden>
+            <div class="success-mark" aria-hidden="true">✓</div>
+            <h3>Thank you for powering this work.</h3>
+            <p>Your donation was received.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img data-logo src="/assets/eko-logo-purple.svg" alt="Ekō" class="footer-logo">
+      <p>People and planet over profit.</p>
+      <a data-privacy-link href="https://www.eko.org/privacy/" target="_blank" rel="noreferrer">Privacy</a>
+    </footer>
+  </body>
+</html>

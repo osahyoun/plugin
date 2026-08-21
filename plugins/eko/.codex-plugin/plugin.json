@@ -1,7 +1,7 @@
 {
   "name": "eko",
-  "version": "0.1.2+codex.20260725145947",
-  "description": "Codex-native campaign analytics, historical memory, email drafting, and review plugin for Eko.",
+  "version": "0.1.2+codex.20260821161845",
+  "description": "Codex-native campaign analytics, drafting, review, monitoring, and universal-canvas Prosecco microsite creation for Eko.",
   "author": {
     "name": "Local developer"
   },
@@ -9,8 +9,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Eko",
-    "shortDescription": "Analyze campaigns, explore mailing memory, and draft, review, or monitor campaign emails.",
-    "longDescription": "Eko is a Codex plugin for privacy-safe campaign performance and fundraising analysis, historical mailing memory, campaign strategy, evidence-aware email drafting, target-of-change readiness, house voice, progressive language review, and campaign monitoring through the production super-search MCP server.",
+    "shortDescription": "Analyze campaigns, draft mailings, and build branded campaign microsites.",
+    "longDescription": "Eko is a Codex plugin for privacy-safe campaign performance and fundraising analysis, historical mailing memory, campaign strategy, evidence-aware email drafting, progressive language review, campaign monitoring, and Prosecco-native microsites whose versioned creative canvas reuses protected petition, sharing, Braintree, 3-D Secure, and PayPal components.",
     "developerName": "Local developer",
     "category": "Productivity",
     "capabilities": [
@@ -23,6 +23,11 @@
       "Evidence review",
       "CTA strategy",
       "Campaign update monitoring",
+      "Campaign microsite generation",
+      "Prosecco campaign page association",
+      "Versioned universal microsite canvas",
+      "Protected native form components",
+      "Native petition, sharing, and Braintree donation journeys",
       "Progressive language review",
       "Structured text outputs"
     ],
@@ -31,6 +36,7 @@
       "Strategize this campaign using past mailing memory.",
       "How much was raised yesterday?",
       "Review this mailing draft before launch.",
+      "Prepare this Prosecco campaign page as a branded petition microsite with sharing and donations.",
       "Create a daily monitor for this campaign draft."
     ],
     "brandColor": "#0F766E"

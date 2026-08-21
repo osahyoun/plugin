@@ -1,0 +1,14 @@
+{
+  "name": "eko-campaign-microsite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Branded Ekō petition, share, and Braintree donation microsite.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  }
+}

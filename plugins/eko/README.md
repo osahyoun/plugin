@@ -12,7 +12,20 @@ analytics, fundraising outcomes, and mailing memory.
 - `skills/eko/references/` - drafter-inspired workflow, prompt templates, and language guidance
 - `skills/eko/references/example-mailings/` - curated historical mailing examples for draft voice and format anchors
 
-There is no local web app in this plugin.
+The main Eko skill works in Codex text. The bundled Campaign Microsite Builder
+associates a campaigner-supplied Prosecco page URL with the campaign record and prepares
+that existing page for the approved universal Ekō canvas. Campaign-specific story,
+imagery, structure, scoped presentation, and allowlisted behaviours live in a versioned
+page bundle. Native Prosecco components retain strict control of petition fields,
+consent, CAPTCHA, member prefill, sharing, Braintree Hosted Fields, 3-D Secure, PayPal,
+and submission endpoints.
+
+The skill explicitly forbids recreating action or payment forms per microsite and
+forbids adding campaign-specific branches to Prosecco as a publishing workaround. An
+environment that does not yet advertise the universal page-bundle capability can host
+a reviewable preview, but is not treated as ready for no-deploy microsite publishing.
+A standalone Node package remains available only as an explicit non-production
+prototype fallback.
 
 ## Campaign Data and Mailing Memory
 
@@ -53,5 +66,6 @@ After installing the plugin, start a new Codex thread and ask for work such as:
 - `Compare action rates by campaign topic over the last year.`
 - `Review this mailing draft against the campaign language guide: ...`
 - `Turn these source notes into a campaign email with subject lines, preview text, evidence map, and warnings.`
+- `Use this Prosecco page to prepare a branded petition microsite with sharing and donations: https://actions.eko.org/en/a/example-campaign`
 
 The skill follows the drafter pipeline: intake, source/evidence prep, mailing memory retrieval, strategy support, voice retrieval, structure, member-action evaluation, drafting, fact check, review, progressive language review, and revision.

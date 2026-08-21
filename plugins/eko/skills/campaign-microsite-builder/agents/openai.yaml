@@ -1,0 +1,4 @@
+interface:
+  display_name: "Campaign Microsite Builder"
+  short_description: "Build safe microsites on Prosecco canvas"
+  default_prompt: "Use $campaign-microsite-builder with this Prosecco page URL to create an Ekō microsite whose story is flexible and whose native action forms stay protected."

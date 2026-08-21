@@ -1,6 +1,6 @@
 ---
 name: eko
-description: Use when campaigners need Codex-native campaign data analysis, fundraising and action outcomes, historical mailing memory, email drafting or review, CTAs, evidence-grounded copy, source-aware reviewer notes, and progressive-language-safe campaign outputs.
+description: Use when campaigners need Codex-native campaign data analysis, fundraising and action outcomes, historical mailing memory, email drafting or review, CTAs, evidence-grounded copy, source-aware reviewer notes, progressive-language-safe campaign outputs, or routing into the campaign microsite workflow.
 ---
 
 # Eko
@@ -8,6 +8,12 @@ description: Use when campaigners need Codex-native campaign data analysis, fund
 Eko is a Codex-native plugin. Do not open or run a web app for this skill. Work
 in Codex text, using the campaign data and mailing-memory MCP tools when
 available.
+
+For a campaign microsite, landing page, petition action page, sharing journey,
+or Braintree donation flow, use `$campaign-microsite-builder`. That dedicated
+skill validates the campaigner's existing Prosecco page URL, applies the approved
+fast layout, and tests its native petition, sharing, and donation journey before
+any approved public campaign launch.
 
 Use this skill when the user asks to:
 
@@ -21,6 +27,7 @@ Use this skill when the user asks to:
 - produce subject lines, preview text, body copy, evidence maps, or reviewer notes
 - review a campaign mailing for target clarity, CTA strength, house voice, evidence support, or progressive language
 - create or improve petition/fundraiser email copy
+- prepare an existing Prosecco page as a working branded petition → share → donation microsite
 
 ## Required Reference Loading
 
