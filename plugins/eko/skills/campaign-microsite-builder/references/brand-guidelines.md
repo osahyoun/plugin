@@ -56,4 +56,6 @@ replacement when the approved asset is available.
   fact and image is replaced with approved campaign content before launch.
 - Prefer campaigner-uploaded imagery or existing Prosecco assets. Unsplash is an option,
   not a dependency.
-- Record source/licence provenance and test the crop on small screens.
+- Record source/licence provenance, set intrinsic dimensions and async decoding, and
+  test the crop on small screens. Only one LCP image may load eagerly; lazy-load the
+  rest and request display-sized variants rather than full originals.

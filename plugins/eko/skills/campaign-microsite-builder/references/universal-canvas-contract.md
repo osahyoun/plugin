@@ -103,9 +103,9 @@ The LLM does not control:
 
 Start with strict presentations:
 
-- petition: `standard`, `compact`, `modal`, `sticky_sidebar`
-- share: `standard`, `compact`
-- donation: `standard`, `progressive`, `story_appeal`, `conversion_checkout`
+- petition: `standard`
+- share: `standard`
+- donation: `progressive`
 
 These are identifiers for reviewed shared templates, not instructions to regenerate a
 form. Unknown identifiers fail validation. A new presentation requires ordinary
@@ -126,6 +126,24 @@ campaign bundle without another deployment.
   cookies, storage, network credentials, native component DOM, or submission events.
 - Respect `prefers-reduced-motion`; never require motion to understand or complete the
   action.
+
+## Image performance invariants
+
+- Use no more than 12 declared image assets in one revision.
+- Every `<img>` and its matching asset record must include intrinsic numeric `width`
+  and `height` so the browser can reserve space before download.
+- Every `<img>` must use `decoding="async"` and an explicit `loading` value.
+- For responsive `<picture>` markup, each `<source>` must use `srcset` with exactly
+  one declared public HTTPS asset URL plus an optional `media` and `type`; do not use
+  `src` on `<source>` or multi-candidate descriptor lists.
+- At most one above-fold LCP image may use `loading="eager"`; it must also use
+  `fetchpriority="high"`.
+- All later images must use `loading="lazy"` and may not use high fetch priority.
+- Keep remote image URLs durable, transformed to an appropriate display size, and
+  recorded with meaningful alt text and attribution. A large original file is not a
+  production-ready asset merely because it is HTTPS.
+- The live publish gate must test the staged page's actual transfer size and crops;
+  bundle byte limits cannot determine the weight of remote imagery.
 
 ## Journey state
 
@@ -150,6 +168,9 @@ Before publish, validate:
 - associated native forms and server-owned ids re-resolved from the saved page URL
 - keyboard navigation, focus, contrast, motion preference, mobile/desktop crop, links,
   action errors, share URLs, and donation errors
+- Lighthouse performance at or above 95, accessibility 100, LCP at or below 2.5s,
+  CLS at or below 0.05, TBT at or below 100ms, no third-party scripts before
+  interaction, and an initial transfer budget at or below 400KB
 - draft/live authorization, revision history, cache invalidation, and rollback
 
 Until Prosecco advertises this universal bundle capability, the plugin may create and

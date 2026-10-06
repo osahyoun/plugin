@@ -98,7 +98,10 @@ Use, in order of preference:
 4. the page's existing Prosecco primary image
 
 Temporary chat URLs and local file paths are not production assets. Always store useful
-alt text and verify crop/focal behavior at mobile and desktop widths.
+alt text and verify crop/focal behavior at mobile and desktop widths. The generated
+canvas markup must follow the image limits and eager/lazy loading rules in
+`universal-canvas-contract.md`; campaigner-provided Unsplash links do not bypass the
+performance gate.
 
 ## Launch states
 
